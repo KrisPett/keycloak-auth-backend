@@ -1,4 +1,4 @@
-package security;
+package com.example.keycloakauthbackend.security;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
