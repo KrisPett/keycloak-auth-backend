@@ -4,6 +4,7 @@ import com.example.keycloakauthbackend.model.DTOs.UserDTO;
 import com.example.keycloakauthbackend.model.UserEntity;
 import com.example.keycloakauthbackend.service.UserService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,9 +14,9 @@ public class UserController {
     UserService userService;
 
     @GetMapping("create-account")
-    public UserDTO createAccount(@RequestParam String username, @RequestParam String password) {
+    public ResponseEntity<UserDTO> createAccount(@RequestParam String username, @RequestParam String password) {
         UserEntity userEntity = userService.createAccount(username, password);
-        return userDTO(userEntity);
+        return ResponseEntity.ok(userDTO(userEntity));
     }
 
     @GetMapping("login")

@@ -1,0 +1,28 @@
+server:
+  port: 8081
+
+keycloak:
+  realm: "chainqt3"
+  auth-server-url: "http://localhost:8080/"
+  ssl-required: "external"
+  resource: "chainqt3-keycloak"
+  public-client: true
+  verify-token-audience: true
+  use-resource-role-mappings: true
+  confidential-port: 0
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/keycloakDB
+    username: postgres
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    open-in-view: false
+    generate-ddl: true
