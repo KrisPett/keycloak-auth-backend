@@ -45,7 +45,7 @@ public class KeyCloakToken {
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_FORM_URLENCODED_VALUE)
                 .build();
         return webClient.post()
-                .uri("auth/realms/"+realm+"/protocol/openid-connect/token")
+                .uri("realms/" + realm + "/protocol/openid-connect/token")
                 .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .body(BodyInserters.fromFormData("grant_type", "password")
                         .with("client_id", clientId)
@@ -54,12 +54,17 @@ public class KeyCloakToken {
                         .with("access_token", ""))
                 .retrieve()
                 .bodyToFlux(KeyCloakToken.class)
-                .onErrorMap(e -> new Exception("Failed to acquire token",e))
+                .onErrorMap(e -> new Exception("Failed to acquire token", e))
                 .last();
     }
 
     public static void main(String[] args) {
-        KeyCloakToken token = acquire("http://localhost:8000/", "test", "test-student", "team4", "admin")
+        KeyCloakToken token = acquire(
+                "http://localhost:8080/",
+                "chainqt3",
+                "chainqt3-keycloak",
+                "u",
+                "u")
                 .block();
         System.out.println(token);
         System.out.println("KeyCloakToken.main ************************************");

@@ -7,24 +7,29 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.security.RolesAllowed;
+
 @RestController
 @RequestMapping("api/user")
 @AllArgsConstructor
+@CrossOrigin("*")
 public class UserController {
     UserService userService;
 
     @GetMapping("create-account")
+    @RolesAllowed("admin")
     public ResponseEntity<UserDTO> createAccount(@RequestParam String username, @RequestParam String password) {
         UserEntity userEntity = userService.createAccount(username, password);
         return ResponseEntity.ok(userDTO(userEntity));
     }
-
     @GetMapping("login")
+    @RolesAllowed("user")
     public String login(){
-       return userService.login();
+        return "login";
     }
 
     @GetMapping("logout")
+    @RolesAllowed({"user", "admin"})
     public String logout(){
         return "logout";
     }
