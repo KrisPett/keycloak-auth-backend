@@ -1,5 +1,7 @@
 package com.example.keycloakauthbackend.rest;
 
+import com.example.keycloakauthbackend.model.DTOs.UserDTO;
+import com.example.keycloakauthbackend.model.UserEntity;
 import com.example.keycloakauthbackend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +12,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     UserService userService;
 
-    /*@RequestMapping(method = RequestMethod.GET, value = "/api/javainuse")*/
+    @GetMapping("create-account")
+    public UserDTO createAccount(@RequestParam String username, @RequestParam String password) {
+        UserEntity userEntity = userService.createAccount(username, password);
+        return userDTO(userEntity);
+    }
+
     @GetMapping("login")
     public String login(){
        return userService.login();
@@ -21,4 +28,8 @@ public class UserController {
         return "logout";
     }
 
+
+    public UserDTO userDTO(UserEntity userEntity){
+        return new UserDTO(userEntity.getId(), userEntity.getUsername(), userEntity.getPassword());
+    }
 }

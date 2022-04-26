@@ -15,7 +15,7 @@ import javax.persistence.Id;
 @Data
 public class UserEntity {
     @Id
-    Long id;
+    String id;
     @Column(name = "username")
     String username;
     @Column(name = "password")
