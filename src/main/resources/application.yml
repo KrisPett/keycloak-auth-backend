@@ -12,12 +12,33 @@ keycloak:
   confidential-port: 0
 
 spring:
+  main:
+    allow-bean-definition-overriding: true
+    web-application-type: reactive
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/chainqt3
+          jwk-set-uri: http://localhost:8080/realms/chainqt3/protocol/openid-connect/certs
+      client:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/chainqt3
+            token-uri: http://localhost:8080/realms/chainqt3/protocol/openid-connect/token
+            user-info-uri: http://localhost:8080/realms/chainqt3/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8080/realms/chainqt3/protocol/openid-connect/certs
+            user-info-authentication-method: header
+            user-name-attribute: preferred_username
+        registration:
+          keycloak:
+            client-id: chainqt3-keycloak
+            scope: openid
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/keycloakDB
     username: postgres
     password: password
-
   jpa:
     hibernate:
       ddl-auto: create-drop

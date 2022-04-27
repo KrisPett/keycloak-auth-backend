@@ -29,7 +29,6 @@ public class UserController {
     }
 
     @GetMapping("logout")
-    @RolesAllowed({"user", "admin"})
     public String logout(){
         return "logout";
     }

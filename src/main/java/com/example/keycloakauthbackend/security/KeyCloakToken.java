@@ -1,3 +1,4 @@
+
 package com.example.keycloakauthbackend.security;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
@@ -57,14 +58,24 @@ public class KeyCloakToken {
                 .onErrorMap(e -> new Exception("Failed to acquire token", e))
                 .last();
     }
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
 
     public static void main(String[] args) {
         KeyCloakToken token = acquire("http://localhost:8080/", "chainqt3", "chainqt3-keycloak", "u", "u")
                 .block();
         System.out.println(token);
         System.out.println("KeyCloakToken.main ************************************");
-        System.out.println(token.accessToken);
+        System.out.println(ANSI_GREEN + token.accessToken + ANSI_RESET);
         System.out.println("KeyCloakToken.main ************************************");
     }
 }
+
 
