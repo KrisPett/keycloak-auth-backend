@@ -34,7 +34,7 @@ public class SecurityConfig {
                 .cors().and()
                 .csrf().disable()
                 .authorizeExchange().pathMatchers(HttpMethod.OPTIONS).permitAll().and()
-                .authorizeExchange().anyExchange().hasRole("user").and()
+                .authorizeExchange().anyExchange().hasAnyRole("user", "admin").and()
                 .oauth2Client()
                 .and()
                 .oauth2ResourceServer(
@@ -51,7 +51,6 @@ public class SecurityConfig {
         jwtConverter.setJwtGrantedAuthoritiesConverter(new KeycloakRealmRoleConverter());
         return jwtConverter;
     }
-
 
     @Bean
     public ReactiveJwtDecoder jwtDecoder() {

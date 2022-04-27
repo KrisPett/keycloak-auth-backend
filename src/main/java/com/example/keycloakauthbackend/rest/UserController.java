@@ -17,24 +17,24 @@ public class UserController {
     UserService userService;
 
     @GetMapping("create-account")
-    @RolesAllowed("admin")
+    @RolesAllowed("employee")
     public ResponseEntity<UserDTO> createAccount(@RequestParam String username, @RequestParam String password) {
         UserEntity userEntity = userService.createAccount(username, password);
         return ResponseEntity.ok(userDTO(userEntity));
     }
+
     @GetMapping("login")
-    @RolesAllowed("user")
-    public String login(){
+    public String login() {
         return "login";
     }
 
     @GetMapping("logout")
-    public String logout(){
+    public String logout() {
         return "logout";
     }
 
 
-    public UserDTO userDTO(UserEntity userEntity){
+    public UserDTO userDTO(UserEntity userEntity) {
         return new UserDTO(userEntity.getId(), userEntity.getUsername(), userEntity.getPassword());
     }
 }
