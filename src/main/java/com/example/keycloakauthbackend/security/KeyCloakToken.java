@@ -69,8 +69,14 @@ public class KeyCloakToken {
     public static final String ANSI_WHITE = "\u001B[37m";
 
     public static void main(String[] args) {
-        KeyCloakToken token = acquire("http://localhost:8080/", "chainqt3", "chainqt3-keycloak", "u", "u")
+        KeyCloakToken token = acquire(
+                "http://localhost:8080/",
+                "chainqt3",
+                "chainqt3-keycloak",
+                "u",
+                "u")
                 .block();
+
         System.out.println(token);
         System.out.println("KeyCloakToken.main ************************************");
         System.out.println(ANSI_GREEN + token.accessToken + ANSI_RESET);

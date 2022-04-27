@@ -34,6 +34,7 @@ public class SecurityConfig {
                 .cors().and()
                 .csrf().disable()
                 .authorizeExchange().pathMatchers(HttpMethod.OPTIONS).permitAll().and()
+                .authorizeExchange().pathMatchers(HttpMethod.GET, "/api/user/login/**").hasRole("employee").and()
                 .authorizeExchange().anyExchange().hasAnyRole("user", "admin").and()
                 .oauth2Client()
                 .and()
