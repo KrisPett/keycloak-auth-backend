@@ -1,16 +1,6 @@
 server:
   port: 8081
 
-#keycloak:
-#  realm: "chainqt3"
-#  auth-server-url: "http://localhost:8080/"
-#  ssl-required: "external"
-#  resource: "chainqt3-keycloak"
-#  public-client: true
-#  verify-token-audience: true
-#  use-resource-role-mappings: true
-#  confidential-port: 0
-
 spring:
   main:
     allow-bean-definition-overriding: true
