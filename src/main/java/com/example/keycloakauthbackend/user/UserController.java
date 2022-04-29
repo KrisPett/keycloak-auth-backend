@@ -13,7 +13,6 @@ public class UserController {
     UserService userService;
 
     @GetMapping("create-account")
-    @RolesAllowed("employee")
     public ResponseEntity<UserDTO> createAccount(@RequestParam String username, @RequestParam String password) {
         UserEntity userEntity = userService.createAccount(username, password);
         return ResponseEntity.ok(userDTO(userEntity));
