@@ -5,10 +5,7 @@ import com.example.keycloakauthbackend.util.KeyCloakToken;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -30,7 +27,7 @@ class KeycloakAuthBackendApplicationTests {
                 .block();
 
         UserDTO userDTO = WebClient
-                .create(getUrl("/api/user/create-account?username=u&password=u"))
+                .create(baseURL("/api/user/create-account?username=u&password=u"))
                 .get()
                 .header("Authorization", "Bearer " + token.getAccessToken())
                 .retrieve()
@@ -41,7 +38,7 @@ class KeycloakAuthBackendApplicationTests {
         assertEquals("u", userDTO.getPassword());
     }
 
-    private String getUrl(String url) {
+    private String baseURL(String url) {
         return "http://localhost:" + port + url;
     }
 
