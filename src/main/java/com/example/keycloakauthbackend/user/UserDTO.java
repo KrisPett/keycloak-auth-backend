@@ -1,6 +1,5 @@
-package com.example.keycloakauthbackend.model.DTOs;
+package com.example.keycloakauthbackend.user;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
 import lombok.Value;
 
 @Value

@@ -1,8 +1,5 @@
-package com.example.keycloakauthbackend.rest;
+package com.example.keycloakauthbackend.user;
 
-import com.example.keycloakauthbackend.model.DTOs.UserDTO;
-import com.example.keycloakauthbackend.model.UserEntity;
-import com.example.keycloakauthbackend.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +9,6 @@ import javax.annotation.security.RolesAllowed;
 @RestController
 @RequestMapping("api/user")
 @AllArgsConstructor
-@CrossOrigin("*")
 public class UserController {
     UserService userService;
 

@@ -1,9 +1,8 @@
-package com.example.keycloakauthbackend.model;
+package com.example.keycloakauthbackend.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Value;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
