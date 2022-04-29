@@ -1,4 +1,4 @@
-package com.example.keycloakauthbackend;
+package com.example.keycloakauthbackend.user;
 
 import com.example.keycloakauthbackend.repository.UserRepository;
 import org.springframework.stereotype.Service;

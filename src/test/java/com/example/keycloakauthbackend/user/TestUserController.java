@@ -1,6 +1,5 @@
 package com.example.keycloakauthbackend.user;
 
-import com.example.keycloakauthbackend.UserDTO;
 import com.example.keycloakauthbackend.util.KeyCloakToken;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

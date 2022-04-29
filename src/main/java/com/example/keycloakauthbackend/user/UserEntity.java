@@ -1,4 +1,4 @@
-package com.example.keycloakauthbackend;
+package com.example.keycloakauthbackend.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
