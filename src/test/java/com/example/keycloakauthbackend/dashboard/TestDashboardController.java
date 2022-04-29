@@ -1,6 +1,5 @@
 package com.example.keycloakauthbackend.dashboard;
 
-import com.example.keycloakauthbackend.UserDTO;
 import com.example.keycloakauthbackend.util.KeyCloakToken;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-public class DashboardController {
+public class TestDashboardController {
     @LocalServerPort
     int port;
 
