@@ -1,6 +1,6 @@
-package com.example.keycloakauthbackend;
+package com.example.keycloakauthbackend.user;
 
-import com.example.keycloakauthbackend.user.UserDTO;
+import com.example.keycloakauthbackend.UserDTO;
 import com.example.keycloakauthbackend.util.KeyCloakToken;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
-class KeycloakAuthBackendApplicationTests {
+class UserController {
     @LocalServerPort
     int port;
 
     @Test
-    void contextLoads() {
+    void test_controller_create_account() {
         KeyCloakToken token = KeyCloakToken.acquire(
                         "http://localhost:8080/",
                         "chainqt3",

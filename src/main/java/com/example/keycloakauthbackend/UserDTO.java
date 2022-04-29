@@ -1,4 +1,4 @@
-package com.example.keycloakauthbackend.user;
+package com.example.keycloakauthbackend;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

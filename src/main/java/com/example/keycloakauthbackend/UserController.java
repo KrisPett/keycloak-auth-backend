@@ -1,10 +1,8 @@
-package com.example.keycloakauthbackend.user;
+package com.example.keycloakauthbackend;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.security.RolesAllowed;
 
 @RestController
 @RequestMapping("api/user")
